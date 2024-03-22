@@ -27,7 +27,7 @@ def create_order(payload: OrderCreate = Depends(order_service.check_availability
     orders.append(new_order)
     return {'message': 'Order created successfully', 'data': new_order}
 
-@order_router.put('/process_order/{order_id}', status_code=201)
+@order_router.put('/{order_id}', status_code=201)
 def process_order(order_id: int = Depends(order_service.does_order_exist)):
     for order in orders:
         if order.id == order_id:
