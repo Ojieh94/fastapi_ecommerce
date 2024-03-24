@@ -15,6 +15,6 @@ def test_get_orders():
     assert len(response.json().get('data')) == 2
 
 def test_process_order():
-    response = client.put('/orders/1')
+    response = client.put('orders/process_order/1')
     assert response.status_code == 201
     assert response.json().get('data').get('status') == 'COMPLETED'
